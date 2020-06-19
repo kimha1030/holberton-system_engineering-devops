@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#Script that displays the time for 12 h and 59 min
+list=$(ls)
+for i in $list; do
+	echo "$i" | cut -d "-" -f 2
+done
