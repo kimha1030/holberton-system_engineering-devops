@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+#Script that loops from 1 to 10
+i=1
+while [  $i -lt 21 ]; do
+	if [ $i == 5 ]; then
+		echo -e "bad luck from China\n$i"
+	elif [ $i == 10 ]; then
+		echo -e "bad luck from Japan\n$i"
+        elif [ $i == 18 ]; then
+                echo -e "bad luck from Italy\n$i"
+	else
+		echo $i
+	fi
+	((i++))
+done
