@@ -2,12 +2,12 @@
 #Script that loops from 1 to 10
 i=1
 while [  $i -lt 21 ]; do
-	if [ $i == 5 ]; then
-		echo -e "bad luck from China\n$i"
-	elif [ $i == 10 ]; then
-		echo -e "bad luck from Japan\n$i"
-        elif [ $i == 18 ]; then
-                echo -e "bad luck from Italy\n$i"
+	if [ $i == 4 ]; then
+		echo -e "$i\nbad luck from China"
+	elif [ $i == 9 ]; then
+		echo -e "$i\nbad luck from Japan"
+        elif [ $i == 17 ]; then
+                echo -e "$i\nbad luck from Italy"
 	else
 		echo $i
 	fi
