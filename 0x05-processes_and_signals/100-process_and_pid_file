@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Script that create a file and show signals.
+echo $$ > /var/run/holbertonscript.pid
+while true; do
+        echo "To infinity and beyond"
+        trap 'echo "I hate the kill command";rm -f /var/run/holbertonscript.pid' 15
+	trap 'echo "Y U no love me?!"' 2
+	sleep 2
+	trap 'rm -f /var/run/holbertonscript.pid' 3
+done
