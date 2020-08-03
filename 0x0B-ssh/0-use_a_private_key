@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#Use ssh to connect server with PK and user
+ssh -i ~/.ssh/holberton ubuntu@34.75.231.107
