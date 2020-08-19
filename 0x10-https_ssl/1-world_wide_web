@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+# Return information about of the subdomains
+func_subdomain() {
+	if [ $# -lt 1 ]; then
+		exit
+	elif [ $# -eq 1 ]; then
+		subd1="www"
+		rec_type=$(dig "$subd1"."$1" | grep -A1 'ANSWER SECTION' | awk '{print $4}')
+		ip_point=$(dig "$subd1"."$1" | grep -A1 'ANSWER SECTION' | awk '{print $5}')
+		printf "The subdomain %s is a %s record and points to %s\n" $subd1 $rec_type $ip_point
+		subd2="lb-01"
+		rec_type=$(dig "$subd2"."$1" | grep -A1 'ANSWER SECTION' | awk '{print $4}')
+		ip_point=$(dig "$subd2"."$1" | grep -A1 'ANSWER SECTION' | awk '{print $5}')
+		printf "The subdomain %s is a %s record and points to %s\n" $subd2 $rec_type $ip_point
+		subd3="web-01"
+		rec_type=$(dig "$subd3"."$1" | grep -A1 'ANSWER SECTION' | awk '{print $4}')
+		ip_point=$(dig "$subd3"."$1" | grep -A1 'ANSWER SECTION' | awk '{print $5}')
+		printf "The subdomain %s is a %s record and points to %s\n" $subd3 $rec_type $ip_point
+		subd4="web-02"
+		rec_type=$(dig "$subd4"."$1" | grep -A1 'ANSWER SECTION' | awk '{print $4}')
+		ip_point=$(dig "$subd4"."$1" | grep -A1 'ANSWER SECTION' | awk '{print $5}')
+		printf "The subdomain %s is a %s record and points to %s\n" $subd4 $rec_type $ip_point
+	elif [ $# -eq 2 ]; then
+		rec_type=$(dig "$2"."$1" | grep -A1 'ANSWER SECTION' | awk '{print $4}')
+		ip_point=$(dig "$2"."$1" | grep -A1 'ANSWER SECTION' | awk '{print $5}')
+		printf "The subdomain %s is a %s record and points to %s\n" $2 $rec_type $ip_point
+	fi
+}
+
+func_subdomain "$@"
