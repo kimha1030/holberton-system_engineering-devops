@@ -15,19 +15,19 @@ def GetUser():
     DataInfo = requests.get(UrlInfo).json()
 
     params = "userId={:}&completed=true".format(sys.argv[1])
-    UrlCompleted = "https://jsonplaceholder.typicode.com/todos/?"+params
+    UrlCompleted = "https://jsonplaceholder.typicode.com/todos/?" + params
     DataCompleted = requests.get(UrlCompleted).json()
 
     EMPLOYEE_NAME = DataInfo.get("name")
-    NUMBER_OF_DONE_TASKS = len(DataCompleted)
-    TOTAL_NUMBER_OF_TASKS = len(DataTask)
+    NUMBER_OF_TASKS = len(DataCompleted)
+    TOTAL_NUMBER = len(DataTask)
     print("Employee {:} is done with tasks({:}/{:}):".format(EMPLOYEE_NAME,
-                                                          NUMBER_OF_DONE_TASKS,
-                                                          TOTAL_NUMBER_OF_TASKS
-                                                          ))
+                                                             NUMBER_OF_TASKS,
+                                                             TOTAL_NUMBER
+                                                             ))
     for i in DataCompleted:
         TASK_TITLE = i.get("title")
-        print("\t\b{}".format(TASK_TITLE))
+        print("  {}".format(TASK_TITLE))
 
 
 if __name__ == "__main__":
