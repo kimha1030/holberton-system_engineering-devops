@@ -27,7 +27,7 @@ def GetUser():
                                                              ))
     for i in DataCompleted:
         TASK_TITLE = i.get("title")
-        print("  {}".format(TASK_TITLE))
+        print("\t{:}".format(TASK_TITLE))
 
 
 if __name__ == "__main__":
