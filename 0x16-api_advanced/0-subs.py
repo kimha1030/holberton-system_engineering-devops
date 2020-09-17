@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """Task 0. How many subs?"""
 import requests
 
