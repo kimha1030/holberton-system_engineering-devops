@@ -15,7 +15,7 @@ def recurse(subreddit, hot_list=[], after=""):
     req = requests.get(urlReddit, headers=userAgent)
     response_data = req.json()
     if req.status_code == 404:
-        print("{:}".format("None"))
+        return None
     else:
         new_Dict = response_data['data']['children']
         for i in range(len(new_Dict)):
