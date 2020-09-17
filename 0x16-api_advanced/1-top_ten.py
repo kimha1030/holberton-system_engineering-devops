@@ -11,7 +11,7 @@ def top_ten(subreddit):
     req = requests.get(urlReddit, headers=userAgent)
     response_data = req.json()
     if req.status_code == 404:
-        return (0)
+        print("{:}".format("None"))
     else:
         new_Dict = response_data['data']['children']
         for i in range(len(new_Dict)):
