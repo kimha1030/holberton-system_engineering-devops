@@ -49,11 +49,11 @@ server {
 
         location ~ ^/airbnb-dynamic/number_odd_or_even/(\d+)$ {
                 include proxy_params;
-                proxy_pass http://localhost:5001/number_odd_or_even/$1;
+                proxy_pass http://127.0.0.1:5001/number_odd_or_even/$1;
         }
 
-        location /static/ {
-                root /home/ubuntu/AirBnB_clone_v4/web_dynamic/;
+        location /static {
+                root /home/ubuntu/AirBnB_clone_v4/web_dynamic;
         }
 
         location /api/ {
@@ -67,6 +67,7 @@ server {
         location / {
                 # First attempt to serve request as file, then
                 # as directory, then fall back to displaying a 404.
+                proxy_pass htpp://localhost:5003/2-hbnb;
                 try_files $uri $uri/ =404;
         }
 
@@ -107,4 +108,3 @@ server {
 #               try_files $uri $uri/ =404;
 #       }
 #}
-
